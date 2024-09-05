@@ -1,0 +1,47 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap');
+
+@layer base {
+	html {
+		@apply scroll-smooth font-roboto snap-mandatory snap-y;
+	}
+}
+
+.clip-custom {
+	clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0);
+  }
+
+  .mask-container {
+	position: relative;
+	overflow: hidden;
+  }
+  
+  .mask-text {
+	position: relative;
+	z-index: 1; /* Ensure text is above background */
+	color: black; /* Default text color */
+	transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  .mask-svg {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	pointer-events: none; /* Ensures SVG does not block mouse events */
+  }
+  
+  .mask-effect {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.5) 80%);
+	mix-blend-mode: multiply; /* Creates the masking effect */
+	pointer-events: none; /* Ensures this layer does not block mouse events */
+  }
