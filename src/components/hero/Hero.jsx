@@ -19,7 +19,7 @@ const Hero = ({ mouseMove }) => {
 				<div className='lg:flex gap-2 mt-1 justify-start hidden'>
 					<a href='#portfolio' className='text-xl xl:text-2xl flex items-center'>Portfolio <MdKeyboardArrowRight /></a>
 					<a href='#services' className='text-xl xl:text-2xl flex items-center'>Services <MdKeyboardArrowRight /></a>
-					<a href='#services' className='text-xl xl:text-2xl flex items-center'>Contact <MdKeyboardArrowRight /></a>
+					<a href='#contact' className='text-xl xl:text-2xl flex items-center'>Contact <MdKeyboardArrowRight /></a>
 				</div>
 			</div>
 			<div className='shrink-0 h-[40rem] lg:h-[45rem] xl:h-[50rem]'>

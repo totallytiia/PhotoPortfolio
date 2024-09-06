@@ -5,8 +5,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300&display=swap');
 
 @layer base {
+	base {
+		@apply snap-mandatory snap-y;
+	}
 	html {
-		@apply scroll-smooth font-roboto snap-mandatory snap-y;
+		@apply scroll-smooth font-roboto h-full;
 	}
 }
 

@@ -65,7 +65,7 @@ function App() {
       <div className=''>
         <Navbar activeSection={activeSection} />
 
-        <motion.section id='hero' className='h-screen snap-start'>
+        <motion.section id='hero' className='h-[100vh] snap-end'>
           <Hero mouseMove={mouseMove} />
         </motion.section>
 
@@ -73,11 +73,11 @@ function App() {
           <Portfolio mouseMove={mouseMove} />
         </motion.section>
 
-        <motion.section id='featured' className='snap-start'>
+        <motion.section id='featured' className='h-[480vh] snap-start'>
           <Featured mouseMove={mouseMove} mousePosition={mousePosition} />
         </motion.section>
 
-        <motion.section id='services' className='h-[110vh] snap-start'>
+        <motion.section id='services' className='h-[100vh] snap-start'>
           <Services mouseMove={mouseMove} mousePosition={mousePosition} />
         </motion.section>
 
