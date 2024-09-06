@@ -6,7 +6,7 @@ import ToggleButton from './toggleButton/ToggleButton';
 
 const variants = {
 	open: {
-		clipPath: 'circle(1400px at 40px 40px)',
+		clipPath: 'circle(1600px at 40px 40px)',
 		transition: {
 			type: 'spring',
 			stiffness: 50,
@@ -25,17 +25,17 @@ const variants = {
 }
 
 
-const SideMenu = () => {
+const SideMenu = ({ logoColor }) => {
 
 	const [open, setOpen] = useState(false);
 
 
 	return (
 		<motion.div
-			className="flex flex-col items-center text-white"
+			className="flex flex-col items-center text-white "
 			animate={open ? 'open' : 'closed'}>
 			< motion.div
-				className='z-30 fixed top-0 left-0 bottom-0 w-full lg:w-[30rem] bg-blue-700'
+				className='z-30 fixed top-0 left-0 bottom-0 w-full lg:w-[35rem]'
 				variants={variants}>
 				<Links />
 			</motion.div >

@@ -66,25 +66,25 @@ function App() {
         <Navbar activeSection={activeSection} />
 
         <motion.section id='hero' className='h-screen snap-start'>
-          <Hero />
+          <Hero mouseMove={mouseMove} />
         </motion.section>
 
         <motion.section id='portfolio' className='h-[300vh] snap-start'>
-          <Portfolio />
+          <Portfolio mouseMove={mouseMove} />
         </motion.section>
 
         <motion.section id='featured' className='snap-start'>
           <Featured mouseMove={mouseMove} mousePosition={mousePosition} />
         </motion.section>
 
-        <motion.section id='services' className='h-screen snap-start'>
+        <motion.section id='services' className='h-[110vh] snap-start'>
           <Services mouseMove={mouseMove} mousePosition={mousePosition} />
         </motion.section>
 
         <motion.section id='contact' className='h-screen snap-start'>
           <Contact mouseMove={mouseMove} mousePosition={mousePosition} />
         </motion.section>
-      </div>
+      </div >
     </AnimatePresence >
   );
 }

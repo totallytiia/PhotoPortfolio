@@ -1,10 +1,12 @@
 import React from 'react';
 import { MdKeyboardArrowRight } from 'react-icons/md';
 
+import heroImg from '../../assets/portfolio-1.jpg';
 
-const Hero = () => {
+
+const Hero = ({ mouseMove }) => {
 	return (
-		<div className='flex py-10 px-20 h-full lg:items-end gap-6 flex-col lg:flex-row items-center justify-center'>
+		<div onMouseMove={mouseMove} className='flex py-10 px-20 h-full lg:items-end gap-6 flex-col lg:flex-row items-center justify-center '>
 			{/* <div className='lg:hidden flex flex-col justify-center items-center'>
 				<h2 className='text-4xl text-blue-700'>Tiia Laukkanen</h2>
 				<h3 className='font-serif italic'>Freelance photographer</h3>
@@ -24,7 +26,7 @@ const Hero = () => {
 				{/* <ImageSlider /> */}
 				{/* <img src={heroImg} alt="" className='h-full' /> */}
 				<img
-					src="src/assets/portfolio-1.jpg"
+					src={heroImg}
 					alt="Portfolio"
 					className='h-full w-full object-cover'
 				/>
