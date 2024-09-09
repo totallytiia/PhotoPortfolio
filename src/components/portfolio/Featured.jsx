@@ -22,7 +22,7 @@ const sections = [
 			{ src: Portfolio3, alt: 'portfolio-3' },
 		],
 		portfolioImg: Portfolio7,
-		caption: "Skye L.",
+		caption: "Skye Leith",
 	},
 	{
 		id: 2,
@@ -31,7 +31,7 @@ const sections = [
 			{ src: Portfolio11, alt: 'portfolio-11' },
 		],
 		portfolioImg: Portfolio8,
-		caption: "Portfolio 2",
+		caption: "Thiam Gabriel",
 	},
 	{
 		id: 3,
@@ -40,7 +40,7 @@ const sections = [
 			{ src: Portfolio9, alt: 'portfolio-9' },
 		],
 		portfolioImg: Portfolio10,
-		caption: "Serena M.",
+		caption: "Serena McCall",
 	},
 	{
 		id: 4,
@@ -49,7 +49,7 @@ const sections = [
 			{ src: dance3, alt: 'dance-3' },
 		],
 		portfolioImg: Dance4,
-		caption: "Ballet boy",
+		caption: "Isaac Martin",
 	},
 ];
 
@@ -74,6 +74,7 @@ const Featured = ({ mouseMove, mousePosition }) => {
 										src={src}
 										alt={alt}
 										className='object-cover object-bottom h-full w-full'
+										loading='lazy'
 									/>
 								</div>
 							))}

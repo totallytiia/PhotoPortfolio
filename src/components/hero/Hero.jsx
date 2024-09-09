@@ -4,7 +4,9 @@ import { MdKeyboardArrowRight } from 'react-icons/md';
 import heroImg from '../../assets/portfolio-1.jpg';
 
 
+
 const Hero = ({ mouseMove }) => {
+
 	return (
 		<div onMouseMove={mouseMove} className='flex py-10 px-20 h-full lg:items-end gap-6 flex-col lg:flex-row items-center justify-center '>
 			{/* <div className='lg:hidden flex flex-col justify-center items-center'>
@@ -22,7 +24,7 @@ const Hero = ({ mouseMove }) => {
 					<a href='#contact' className='text-xl xl:text-2xl flex items-center'>Contact <MdKeyboardArrowRight /></a>
 				</div>
 			</div>
-			<div className='shrink-0 h-[40rem] lg:h-[45rem] xl:h-[50rem]'>
+			<div className='shrink-0 h-[40rem] lg:h-[45rem] xl:h-[50rem] w-[30rem] lg:w-[32rem] xl:w-[34rem] overflow-hidden'>
 				{/* <ImageSlider /> */}
 				{/* <img src={heroImg} alt="" className='h-full' /> */}
 				<img

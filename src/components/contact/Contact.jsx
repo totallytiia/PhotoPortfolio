@@ -5,12 +5,30 @@ import React from 'react';
 
 const Contact = ({ mouseMove }) => {
 
+	const headerText = 'Get in touch';
+
+	// slice the headerText into an array of characters
+
+	const headerTextArray = headerText.split('');
+
 	return (
-		<motion.div onMouseMove={mouseMove} className='flex flex-col lg:flex-row justify-center items-center w-full h-full overflow-hidden'>
+		<motion.div onMouseMove={mouseMove} className='flex flex-col lg:flex-row justify-center items-center border-t-2  w-full h-full overflow-hidden'>
 			<div className='w-2/3 md:w-1/2 h-full flex justify-center items-center lg:items-start pt-10 py-4 lg:py-6'>
 				<div className="flex flex-col justify-around h-full w-[25rem] lg:w-[25vw]">
 					<div className=''>
-						<h1 className='text-[5rem] lg:text-[8vw] 2xl:text-[8rem] font-bold leading-none'>Get in touch</h1>
+						{/* <h1 className='text-[5rem] lg:text-[8vw] 2xl:text-[8rem] font-bold leading-none'>Get in touch</h1> */}
+						<h1 className='text-[5rem] lg:text-[8vw] 2xl:text-[8rem] font-bold leading-none'>
+							{headerTextArray.map((letter, index) => (
+								<motion.span
+									key={index}
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									transition={{ delay: index * 0.2 }}
+								>
+									{letter}
+								</motion.span>
+							))}
+						</h1>
 					</div>
 					<div className=''>
 						<h4 className='text-[1.4rem] lg:text-[1.8vw] 2xl:text-[2rem] font-bold text-balance'> Let's start a conversation about your project. I'm available for freelance work and collaborations.</h4>
@@ -31,7 +49,7 @@ const Contact = ({ mouseMove }) => {
 					</div>
 				</div >
 			</div >
-			<div className='hidden lg:block border-r-2 h-[80vh]' />
+			<div className='hidden lg:block border-r-2 h-full' />
 			<div className='w-full h-[80%] lg:h-full lg:w-1/2 flex flex-col justify-end lg:justify-between items-center gap-6'>
 				<div className='hidden lg:relative lg:flex justify-center lg:h-[50%] items-center w-[25rem] lg:w-[25vw]'>
 					<h4 className='text-[1rem] lg:text-[1.5vw] xl:text-[1.4rem]'> Fill out the form below and I'll get back to you as soon as possible.</h4>

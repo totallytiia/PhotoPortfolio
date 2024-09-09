@@ -1,5 +1,6 @@
+import Lenis from '@studio-freight/lenis';
 import { AnimatePresence, motion, useSpring } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Contact from './components/contact/Contact';
 import Hero from './components/hero/Hero';
 import Navbar from './components/navbar/Navbar';
@@ -9,8 +10,6 @@ import Services from './components/services/Services';
 
 
 function App() {
-
-  const [activeSection, setActiveSection] = useState('');
 
   const spring = {
     stiffness: 160,
@@ -24,7 +23,6 @@ function App() {
   };
 
 
-
   const mouseMove = (e) => {
     const { clientX, clientY } = e;
     const targetX = clientX - (window.innerWidth / 2 * 0.25);
@@ -34,36 +32,31 @@ function App() {
   }
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section');
-    const options = {
-      threshold: 0.2,
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    }, options);
-
-    sections.forEach((section) => {
-      observer.observe(section);
+    // Initialize Lenis for smooth scrolling
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
     });
 
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    // Start the animation loop
+    requestAnimationFrame(raf);
+
     return () => {
-      if (sections) {
-        sections.forEach((section) => {
-          observer.unobserve(section);
-        });
-      }
+      lenis.destroy(); // Clean up on unmount
     };
   }, []);
+
 
   return (
     <AnimatePresence>
       <div className=''>
-        <Navbar activeSection={activeSection} />
+        <Navbar />
 
         <motion.section id='hero' className='h-[100vh] snap-end'>
           <Hero mouseMove={mouseMove} />
@@ -77,12 +70,12 @@ function App() {
           <Featured mouseMove={mouseMove} mousePosition={mousePosition} />
         </motion.section>
 
-        <motion.section id='services' className='h-[100vh] snap-start'>
+        <motion.section id='services' className='h-[120vh] snap-start'>
           <Services mouseMove={mouseMove} mousePosition={mousePosition} />
         </motion.section>
 
         <motion.section id='contact' className='h-screen snap-start'>
-          <Contact mouseMove={mouseMove} mousePosition={mousePosition} />
+          <Contact mouseMove={mouseMove} />
         </motion.section>
       </div >
     </AnimatePresence >

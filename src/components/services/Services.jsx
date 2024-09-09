@@ -79,7 +79,7 @@ const Services = ({ mouseMove, mousePosition }) => {
 					initial={{ opacity: 0, scale: 0 }} // Initial state when not in view
 					animate={{
 						opacity: isInView ? 1 : 0,
-						scale: isInView ? (isHovered ? 1.8 : 0.2) : 0,
+						scale: isInView ? (isHovered ? 1.8 : 0.1) : 0,
 					}}
 					transition={{
 						type: 'tween',

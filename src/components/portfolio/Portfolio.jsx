@@ -40,7 +40,7 @@ const ImageSlider = () => {
 				<motion.div style={{ x, width: `${(photos.length - 2.8) * 35.8}vw` }} className='h-[75vh] flex gap-[0.8vw]'>
 					{photos.map((photo) => (
 						<motion.div key={photo.id + 1} className='h-full w-[35vw] shrink-0'>
-							<motion.img src={photo.src} alt={photo.alt} className='object-cover w-full h-full' />
+							<motion.img loading='eager' src={photo.src} alt={photo.alt} className='object-cover w-full h-full' />
 						</motion.div>
 					))}
 				</motion.div>

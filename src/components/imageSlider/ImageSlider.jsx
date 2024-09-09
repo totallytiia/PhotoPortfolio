@@ -1,92 +1,41 @@
-// import { motion, useScroll, useTransform } from 'framer-motion'
-// import React, { useRef } from 'react'
+import React, { useEffect, useState } from 'react';
+import Dance2 from '../../assets/dance-2.jpg';
+import Dance5 from '../../assets/dance-5.jpg';
+import Dance6 from '../../assets/dance-6.jpg';
+import Portfolio1 from '../../assets/portfolio-1.jpg';
+import Portfolio12 from '../../assets/portfolio-12.jpg';
 
+// List of photos to display
+const photos = [
+	{ id: 1, src: Portfolio1, alt: 'portfolio-1' },
+	{ id: 2, src: Portfolio12, alt: 'portfolio-12' },
+	{ id: 3, src: Dance5, alt: 'dance-5' },
+	{ id: 4, src: Dance6, alt: 'dance-6' },
+	{ id: 5, src: Dance2, alt: 'dance-2' },
+];
 
-// import { default as Portfolio1, default as Portfolio9 } from '../../assets/portfolio-1.jpg'
-// import { default as Portfolio10, default as Portfolio2 } from '../../assets/portfolio-2.jpg'
-// import { default as Portfolio11, default as Portfolio4 } from '../../assets/portfolio-4.jpg'
-// import { default as Portfolio12, default as Portfolio5 } from '../../assets/portfolio-5.jpg'
-// import Portfolio6 from '../../assets/portfolio-6.jpg'
-// import Portfolio8 from '../../assets/portfolio-8.jpg'
+const ImageSlider = () => {
+	// Track the current image
+	const [current, setCurrent] = useState(0);
 
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setCurrent((prevCurrent) => (prevCurrent === photos.length - 1 ? 0 : prevCurrent + 1));
+		}, 200);
 
-// const photos = [
-// 	{
-// 		id: 1,
-// 		src: Portfolio1,
-// 		alt: 'portfolio-1',
-// 	},
-// 	{
-// 		id: 2,
-// 		src: Portfolio2,
-// 		alt: 'portfolio-2',
-// 	},
-// 	{
-// 		id: 3,
-// 		src: Portfolio4,
-// 		alt: 'portfolio-4',
-// 	},
-// 	{
-// 		id: 4,
-// 		src: Portfolio5,
-// 		alt: 'portfolio-5',
-// 	},
-// 	{
-// 		id: 5,
-// 		src: Portfolio6,
-// 		alt: 'portfolio-6',
-// 	},
-// 	{
-// 		id: 6,
-// 		src: Portfolio8,
-// 		alt: 'portfolio-8',
-// 	},
-// 	{
-// 		id: 7,
-// 		src: Portfolio9,
-// 		alt: 'portfolio-9',
-// 	},
-// 	{
-// 		id: 8,
-// 		src: Portfolio10,
-// 		alt: 'portfolio-10',
-// 	},
-// 	{
-// 		id: 9,
-// 		src: Portfolio11,
-// 		alt: 'portfolio-11',
-// 	},
-// 	{
-// 		id: 10,
-// 		src: Portfolio12,
-// 		alt: 'portfolio-12',
-// 	},
-// ];
+		// Clear interval on component unmount
+		return () => {
+			clearInterval(interval);
+		};
+	}, []);
 
-// const ImageSlider = () => {
+	return (
+		<img
+			src={photos[current].src}
+			alt={photos[current].alt}
+			className="object-cover w-full h-full"
+		/>
+	);
+};
 
-// 	const targetRef = useRef < HTMLDivElement | null > (null);
-// 	const { scrollYProgress } = useScroll({
-// 		target: targetRef,
-// 	});
-
-// 	const x = useTransform(scrollYProgress, [0, 1], ["20%", "-70%"]);
-
-
-// 	return <div className='h-[400vh]'>
-// 		<div className='h-screen sticky top-0 flex items-center overflow-hidden'>
-// 			<motion.div style={{ x }} className='flex gap-4'>
-// 				{photos.map((photo) => {
-// 					return <motion.div
-// 						key={photo.id} className='w-[30em] h-[40em] bg-black'>
-// 						<motion.img src={photo.src} alt={photo.alt} className='object-cover object-left w-full h-full' />
-// 					</motion.div>
-// 				})}
-// 			</motion.div>
-// 		</div>
-// 	</div >
-// }
-
-
-
-// export default ImageSlider;
+export default ImageSlider;

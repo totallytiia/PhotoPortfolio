@@ -25,10 +25,9 @@ const variants = {
 }
 
 
-const SideMenu = ({ logoColor }) => {
+const SideMenu = () => {
 
 	const [open, setOpen] = useState(false);
-
 
 	return (
 		<motion.div
